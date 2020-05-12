@@ -1,0 +1,90 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+
+	<div id="twocol">
+
+		<header class="content page">
+
+			<span class="wrap first">
+
+				<koken:breadcrumbs separator="/" />
+
+			</span>
+
+		</header>
+
+		<div class="mcol">
+
+			<koken:loop>
+
+				<koken:event>
+
+					<koken:include file="layouts/event_album.html" />
+
+					<koken:include file="layouts/event_album_update.html" />
+
+					<koken:include file="layouts/event_content.html" />
+
+					<koken:include file="layouts/event_essay.html" />
+
+				</koken:event>
+
+			</koken:loop>
+
+		</div>
+
+		<div class="rcol">
+
+			<aside>
+
+				<koken:if true="settings.tags_show_list">
+
+					<section>
+
+						<koken:load source="tags">
+
+							<header class="content">
+								<span class="wrap first">
+									{{ labels.tag.plural }}
+								</span>
+							</header>
+
+							<ol class="meta_list">
+
+								<koken:loop>
+
+									<li>
+
+										<koken:link title="View everything in {{ tag.title }}">
+
+											<span class="count">{{ tag.counts.total }}</span>
+											<h4 class="tag">{{ tag.title }}</h4>
+
+										</koken:link>
+
+									</li>
+
+								</koken:loop>
+
+							</ol>
+
+						</koken:load>
+
+					</section>
+
+				</koken:if>
+
+				<koken:include file="layouts/timeline_aside.html" />
+
+			</aside>
+
+		</div>
+
+		<koken:include file="layouts/pagination.html" />
+
+	</div>
+
+</koken:load>
+
+<koken:include file="layouts/footer.html" />

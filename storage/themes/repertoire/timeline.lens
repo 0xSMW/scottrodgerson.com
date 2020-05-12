@@ -1,0 +1,46 @@
+<koken:include file="inc/header.html" />
+
+<div id="timeline">
+
+<koken:load>
+
+	<koken:loop>
+
+		<koken:event>
+
+			<koken:include file="inc/event-content.html" />
+			<koken:include file="inc/event-essay.html" />
+			<koken:include file="inc/event-album.html" />
+			<koken:include file="inc/event-album-update.html" />
+
+		</koken:event>
+
+	</koken:loop>
+
+	<div class="row">
+
+		<div class="four columns">&nbsp;</div>
+
+		<div class="twelve columns">
+
+			<koken:include file="inc/pagination.html" />
+
+		</div>
+
+	</div>
+
+	<koken:keyboard_scroll element=".scroll-me" />
+
+<koken:else>
+
+	<koken:note>
+
+		<strong>No timeline data found.</strong> You need to upload content or publish an essay.
+
+	</koken:note>
+
+</koken:load>
+
+</div>
+
+<koken:include file="inc/footer.html" />

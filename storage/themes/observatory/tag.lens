@@ -1,0 +1,112 @@
+<koken:include file="inc/header.html" />
+
+<koken:load limit="20" infinite="true">
+
+	<div id="mob-pag" class="content-row">
+
+		<div class="content-wrap">
+
+			<koken:previous>
+				<koken:link class="pag" title="View all content tagged #{{ tag.title }}" bind_to_key="left">&larr; #{{ tag.title }}</koken:link>
+			</koken:previous>
+
+			&nbsp;&nbsp;
+
+			<koken:next>
+				<koken:link class="pag" title="View all content tagged #{{ tag.title }}" bind_to_key="right">#{{ tag.title }} &rarr;</koken:link>
+			</koken:next>
+
+		</div>
+
+	</div>
+
+	<div class="content-row">
+
+		<div class="content-wrap">
+
+			<ul class="detail-nav">
+
+				<li>
+					<span class="l">
+						<koken:previous>
+							<koken:link class="pag" title="View all content tagged #{{ tag.title }}">&larr; #{{ tag.title }}</koken:link>
+						</koken:previous>
+					</span>
+					<span class="m">
+						<h2 class="archive">
+							#{{ tag.title }}
+						</h2>
+					</span>
+					<span class="r">
+						<koken:next>
+							<koken:link class="pag" title="View all content tagged #{{ tag.title }}">#{{ tag.title }} &rarr;</koken:link>
+						</koken:next>
+					</span>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div id="grid" class="row no-rebalance">
+
+		<div class="one-third column elem"></div>
+
+		<div class="one-third column elem"></div>
+
+		<div class="one-third column elem"></div>
+
+	</div>
+
+	<koken:loop>
+
+		<koken:event>
+
+			<div class="item">
+
+				<koken:include file="inc/event_album.html" />
+
+				<koken:include file="inc/event_album_update.html" />
+
+				<koken:include file="inc/event_content.html" />
+
+				<koken:include file="inc/event_essay.html" />
+
+			</div>
+
+		</koken:event>
+
+	</koken:loop>
+
+	<div id="infinite_load_msg">
+		<span>Loading more...</span>
+	</div>
+
+	<script>
+		$(window).on('k-infinite-loading', function() {
+			$('#infinite_load_msg').show();
+		});
+
+		$(window).on('k-infinite-loaded', function() {
+			$('#infinite_load_msg').hide();
+		});
+	</script>
+
+	<koken:asset file="js/grid.js" />
+
+<koken:else>
+
+	<koken:note>
+
+		<strong>No albums found.</strong> Create some in the Library.
+
+	</koken:note>
+
+	<br>
+	<br>
+
+</koken:load>
+
+<koken:include file="inc/footer.html" />
